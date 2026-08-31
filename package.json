@@ -10,7 +10,7 @@
   "author": "about-vann",
   "license": "MIT",
   "dependencies": {
-    "@whiskeysockets/baileys": "latest",
+    "@rexxhayanasi/elaina-baileys": "latest",
     "pino": "latest"
   }
 }
