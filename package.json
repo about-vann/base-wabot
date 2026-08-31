@@ -1,0 +1,16 @@
+{
+  "name": "base-wabot",
+  "version": "1.0.0",
+  "description": "Clean WhatsApp bot base with database structure preserved in handler.js",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "about-vann",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "latest",
+    "pino": "latest"
+  }
+}
