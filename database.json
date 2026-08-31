@@ -1,0 +1,15 @@
+{
+  "users": {},
+  "chats": {},
+  "settings": {},
+  "bots": {
+    "stock": {}
+  },
+  "monsters": [
+    "Wither",
+    "Ender Dragon",
+    "Warden",
+    "Giant"
+  ],
+  "tembak": {}
+}
