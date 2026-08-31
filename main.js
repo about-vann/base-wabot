@@ -5,7 +5,6 @@ import makeWASocket, {
 } from '@rexxhayanasi/elaina-baileys'
 import P from 'pino'
 import { handler } from './handler.js'
-import { smsg } from './lib/simple.js'
 import './setting.js'
 
 async function startBot() {
@@ -25,8 +24,11 @@ async function startBot() {
   conn.ev.on('messages.upsert', async ({ messages }) => {
     for (const message of messages) {
       if (!message?.message) continue
-      const m = smsg(conn, message)
-      await handler.call(conn, { messages: [m] })
+      try {
+        await handler.call(conn, { messages: [message] })
+      } catch (error) {
+        console.error('Message handler error:', error)
+      }
     }
   })
 
