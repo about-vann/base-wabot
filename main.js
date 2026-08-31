@@ -2,7 +2,7 @@ import makeWASocket, {
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion
-} from '@whiskeysockets/baileys'
+} from '@rexxhayanasi/elaina-baileys'
 import P from 'pino'
 import { handler } from './handler.js'
 import './setting.js'
