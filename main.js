@@ -4,7 +4,6 @@ import makeWASocket, {
   fetchLatestBaileysVersion
 } from '@whiskeysockets/baileys'
 import P from 'pino'
-import { Boom } from '@hapi/boom'
 import { handler } from './handler.js'
 import './setting.js'
 
@@ -26,9 +25,10 @@ async function startBot() {
   conn.ev.on('connection.update', ({ connection, lastDisconnect }) => {
     if (connection === 'open') console.log('✓ WhatsApp connected')
     if (connection === 'close') {
-      const shouldReconnect = new Boom(lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut
+      const statusCode = lastDisconnect?.error?.output?.statusCode
+      const shouldReconnect = statusCode !== DisconnectReason.loggedOut
       console.log(`✗ WhatsApp disconnected${shouldReconnect ? ', reconnecting...' : ''}`)
-      if (shouldReconnect) startBot()
+      if (shouldReconnect) startBot().catch(console.error)
     }
   })
 }
