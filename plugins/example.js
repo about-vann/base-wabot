@@ -1,13 +1,16 @@
 /**
- * Example plugin.
- *
- * This file is intentionally disabled and contains no bot feature.
- * Copy it when you want to add your own command.
+ * Plugin skeleton.
+ * Add your own feature implementation here.
  */
 
-export default {
-  name: 'example',
-  async execute({ conn, message, args }) {
-    // Your feature implementation goes here.
-  }
+let handler = async (m, { conn, text, args, usedPrefix, command }) => {
+  await conn.sendMessage(m.chat, {
+    text: `Plugin ${command || 'example'} siap dikembangkan.`
+  }, { quoted: m })
 }
+
+handler.command = ['example']
+handler.help = ['example']
+handler.tags = ['main']
+
+export default handler
